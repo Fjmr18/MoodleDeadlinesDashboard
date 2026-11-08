@@ -1,0 +1,28 @@
+# Dependências
+node_modules/
+
+# Segredos — nunca versionar
+.env
+.env.*
+!.env.example
+
+# Dados locais: cache, ficheiros descarregados, overrides e relatórios
+data/
+
+# Logs e ficheiros temporários
+*.log
+logs/
+tmp/
+
+# Sistema operativo e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Cobertura de testes
+coverage/
+
+# Agente
+AGENTS.md
