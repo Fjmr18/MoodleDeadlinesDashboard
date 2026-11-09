@@ -19,6 +19,112 @@ datas duvidosas.
 > a própria página pede o ano letivo, o número de aluno e a palavra-passe, obtém
 > um token e cria o ficheiro.
 
+## Para quem não é de Engenharia Informática
+
+Esta secção explica, sem pressupor conhecimentos de programação, o que é preciso
+para pôr a aplicação a funcionar. Se já conheces Node.js, podes saltar para
+[Requisitos](#requisitos).
+
+### O que é o Node.js?
+
+O **Node.js** é um programa gratuito que corre JavaScript no computador, fora do
+navegador. Normalmente o JavaScript só funciona dentro de páginas web; o Node.js
+permite usá-lo para criar aplicações que correm no teu próprio computador — é o
+caso deste dashboard.
+
+Pensa nele como o **motor** que executa a aplicação: o dashboard não é um
+programa que se instala com duplo clique, é um conjunto de ficheiros de código que
+precisa do Node.js para arrancar. Quando executas `npm start`, estás a pedir ao
+Node.js que ligue o servidor local que mostra a página no navegador.
+
+O **npm** (vem incluído no Node.js) é o gestor de pacotes: serve para instalar
+bibliotecas de que o projeto precise. Neste projeto não há dependências externas,
+mas `npm install` continua a ser o primeiro passo normal.
+
+O dashboard corre **só no teu computador** e não é publicado na Internet. Os dados
+do Moodle e as tuas credenciais ficam guardados localmente.
+
+### Instalar o Node.js
+
+Instala a versão **LTS (Long Term Support)**, que é a mais estável. A versão tem
+de ser **20.12 ou superior**.
+
+- **Windows e macOS:** descarrega o instalador em
+  [nodejs.org](https://nodejs.org) e segue os passos (aceitar as opções por
+  omissão é suficiente).
+- **Linux:** usa o gestor de pacotes da distribuição ou o instalador de
+  [nodejs.org](https://nodejs.org). Por exemplo, em Ubuntu/Debian, a forma mais
+  simples de garantir uma versão recente é seguir as instruções oficiais da
+  página de downloads.
+
+Depois de instalar, abre um terminal (no Windows: **Prompt de Comando** ou
+**PowerShell**; no macOS: **Terminal**; no Linux: o terminal da distribuição) e
+escreve:
+
+```bash
+node --version
+npm --version
+```
+
+Se aparecerem dois números de versão (por exemplo `v20.12.0` e `10.x.x`), a
+instalação correu bem. Se aparecer uma mensagem de erro, fecha e volta a abrir o
+terminal; se continuar, reinstala o Node.js.
+
+### Correr o projeto
+
+1. **Obter o código.** Se ainda não tens a pasta do projeto, descarrega-a do
+   GitHub (botão **Code → Download ZIP**) e descomprime-a, ou usa o Git:
+
+   ```bash
+   git clone <URL-do-repositório>
+   cd MoodleDeadlinesDashboard
+   ```
+
+2. **Entrar na pasta do projeto.** No terminal, usa `cd` para ir até à pasta que
+   contém o ficheiro `package.json`. Por exemplo, no Windows:
+
+   ```bash
+   cd C:\Users\o-teu-nome\Downloads\MoodleDeadlinesDashboard
+   ```
+
+   Dica: podes escrever `cd ` (com um espaço) e arrastar a pasta para o terminal,
+   que o caminho é preenchido automaticamente.
+
+3. **Instalar o que for necessário.** Dentro dessa pasta, executa:
+
+   ```bash
+   npm install
+   ```
+
+   Este passo só é preciso na primeira vez (ou quando o projeto for atualizado).
+
+4. **Arrancar a aplicação:**
+
+   ```bash
+   npm start
+   ```
+
+   O terminal mostra uma mensagem a indicar que o servidor está a correr. **Deixa
+   esta janela aberta** — se a fechares, a aplicação para.
+
+5. **Abrir no navegador.** Vai a [http://127.0.0.1:3000](http://127.0.0.1:3000).
+   Na primeira vez aparece o assistente para ligar ao Moodle; segue as
+   instruções no ecrã (ver [Primeira configuração](#primeira-configuração-fase-4)).
+
+6. **Parar a aplicação.** Volta ao terminal e prime `Ctrl + C`. Para a usar outra
+   vez, basta repetir o passo 4 (`npm start`) — não é preciso reinstalar nada.
+
+Se algo falhar:
+
+- **“npm não é reconhecido”** — o Node.js não está instalado ou o terminal foi
+  aberto antes da instalação. Reinstala e abre um terminal novo.
+- **“Porta 3000 já está a ser usada”** — há outra aplicação a usar essa porta.
+  Fecha o outro programa ou define outra porta, por exemplo
+  `PORT=3001 npm start` (no Windows PowerShell:
+  `$env:PORT=3001; npm start`), e abre `http://127.0.0.1:3001`.
+- **A página não abre** — confirma que o terminal continua aberto e sem erros e
+  que escreveste o endereço completo, com `http://`.
+
 ## Requisitos
 
 - Node.js **LTS, versão 20.12 ou superior** (`node --version`).
